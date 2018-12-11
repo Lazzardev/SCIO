@@ -54,7 +54,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0x000006609bc17b18f3cfb6db33fe7e1bb6bc861ab02ea38bbf1736d04f648d5a"));
+    boost::assign::map_list_of(0, uint256("0xf592f6f955de26342944d88641460d2f5647d7117f1af95191ebfb6d925f7b8a"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
     1544547600, // * UNIX timestamp of last checkpoint block
@@ -91,9 +91,9 @@ libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params() const
 std::string CChainParams::GetDevFeeRewardAddress()
 {
 	if(Params().NetworkID() == CBaseChainParams::TESTNET)
-		return "SfnJxCvqX2Um8PaohegbmDAm69pCmnY5bi";
+		return "sMuNqpmAtveqhGWDijgDoYXMJrSUETC2RE";
 	else
-		return "SfnJxCvqX2Um8PaohegbmDAm69pCmnY5bi";
+		return "sMuNqpmAtveqhGWDijgDoYXMJrSUETC2RE";
 }
 
 CScript CChainParams::GetScriptForDefFeeDestination() {
@@ -172,8 +172,8 @@ public:
         genesis.nNonce = 1455647;
 
 		    hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000006609bc17b18f3cfb6db33fe7e1bb6bc861ab02ea38bbf1736d04f648d5a"));
-        assert(genesis.hashMerkleRoot == uint256("0x558392d59f3990fcdb10d6f107cde17a99ffae59548e84c8871acc706deb11b9"));
+        assert(hashGenesisBlock == uint256("0xf592f6f955de26342944d88641460d2f5647d7117f1af95191ebfb6d925f7b8a"));
+        assert(genesis.hashMerkleRoot == uint256("0x6670689431a94398ec8cb9316af8df1c15d41485af8d290b21451e05bbff5a75"));
 
 
         vSeeds.push_back(CDNSSeedData("45.77.122.135", "45.77.122.135"));   // Single node address
@@ -203,7 +203,7 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "04b198e8e3a09cf4d12d5540414b6f199d4c8e6f36864f776a9974937696e946bae4577ad9c5e3d827ea76ebe6d266e750020639cffbbe407f8905cb8aecb9293b";
-        strObfuscationPoolDummyAddress = "ScRpu4qQWrYqtgpnUryUj3Cno27B6hnY5C";
+        strObfuscationPoolDummyAddress = "sPjKxYRZT7YnkhgWLxNU6QUtS7ziM734Yy";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
 
         /** Zerocoin */
@@ -300,7 +300,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKey = "04687722f8e09999241c334ac4454ca847593d92274a770aaa7bdeba3b2b0c064cc6fb45b16af02260cb7aca61a60b798a6ce7388edf9c8fadaba209d18b508c95";
-        strObfuscationPoolDummyAddress = "ScRpu4qQWrYqtgpnUryUj3Cno27B6hnY5C";
+        strObfuscationPoolDummyAddress = "sPjKxYRZT7YnkhgWLxNU6QUtS7ziM734Yy";
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet

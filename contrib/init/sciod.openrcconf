@@ -1,0 +1,26 @@
+# /etc/conf.d/sciod: config file for /etc/init.d/sciod
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/scio/scio.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/sciod"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/sciod.pid"
+
+# Where to write sciod data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/sciod"
+
+# User and group to own sciod process
+#BITCOIND_USER="scio"
+#BITCOIND_GROUP="scio"
+
+# Path to sciod executable
+#BITCOIND_BIN="/usr/bin/sciod"
+
+# Nice value to run sciod under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

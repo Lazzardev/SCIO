@@ -57,7 +57,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of(0, uint256("0xf592f6f955de26342944d88641460d2f5647d7117f1af95191ebfb6d925f7b8a"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1544547600, // * UNIX timestamp of last checkpoint block
+    1544558400, // * UNIX timestamp of last checkpoint block
     1,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2        // * estimated number of transactions per day after checkpoint
@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1544547601,
+    1544558401,
     0,
     250};
 
@@ -75,7 +75,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1544547602,
+    1544558402,
     0,
     100};
 
@@ -167,9 +167,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1544547600;
+        genesis.nTime = 1544558400;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1455647;
+        genesis.nNonce = 1242725;
 
 		    hashGenesisBlock = genesis.GetHash();
         assert(hashGenesisBlock == uint256("0xf592f6f955de26342944d88641460d2f5647d7117f1af95191ebfb6d925f7b8a"));
@@ -264,8 +264,8 @@ public:
         nBlockLastGoodCheckpoint = 9891730; //Last valid accumulator checkpoint
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1544547601;
-        genesis.nNonce = 928030;
+        genesis.nTime = 1544558401;
+        genesis.nNonce = 1125831;
 
 	      hashGenesisBlock = genesis.GetHash();
         //printf(">>>hashGenesisBlock = %s\n", hashGenesisBlock.ToString().c_str());
@@ -335,9 +335,9 @@ public:
         nTargetTimespan = 24 * 60 * 60; // SCIO: 1 day
         nTargetSpacing = 1 * 60;        // SCIO: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1544547602;
+        genesis.nTime = 1544558402;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 178795;
+        genesis.nNonce = 952025;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 17636;

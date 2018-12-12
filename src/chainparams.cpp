@@ -54,10 +54,10 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 //    timestamp before)
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
-    boost::assign::map_list_of(0, uint256("0xafe738db2fb88497a2ec2638e98c5e23303252845e06f41d07b590f8d9379cab"));
+    boost::assign::map_list_of(0, uint256("0xee5609f66174d301a38cf461712848870086582cc96e49b78cb6e45c33f1adf1"));
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1544558400, // * UNIX timestamp of last checkpoint block
+    1544580000, // * UNIX timestamp of last checkpoint block
     1,    // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     2        // * estimated number of transactions per day after checkpoint
@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1544558401,
+    1544580001,
     0,
     250};
 
@@ -75,7 +75,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1544558402,
+    1544580002,
     0,
     100};
 
@@ -91,9 +91,9 @@ libzerocoin::ZerocoinParams* CChainParams::Zerocoin_Params() const
 std::string CChainParams::GetDevFeeRewardAddress()
 {
 	if(Params().NetworkID() == CBaseChainParams::TESTNET)
-		return "sMuNqpmAtveqhGWDijgDoYXMJrSUETC2RE";
+		return "7Z5bAYa8VmNvMTmdTPmBKnekQARXCpLEFq";
 	else
-		return "sMuNqpmAtveqhGWDijgDoYXMJrSUETC2RE";
+		return "7Z5bAYa8VmNvMTmdTPmBKnekQARXCpLEFq";
 }
 
 CScript CChainParams::GetScriptForDefFeeDestination() {
@@ -116,10 +116,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x65;
-        pchMessageStart[1] = 0x21;
-        pchMessageStart[2] = 0xa9;
-        pchMessageStart[3] = 0xa4;
+        pchMessageStart[0] = 0x21;
+        pchMessageStart[1] = 0x65;
+        pchMessageStart[2] = 0xa4;
+        pchMessageStart[3] = 0xa9;
         vAlertPubKey = ParseHex("041f8eb90d55c875abdaed81a45c2fe6ba98f3ba6112814e21315b2b01f3841975f3fc58689ff733b8dec9de3d71735485220aaf2bf7bbc921a9d75d92d2f1ea94");
         nDefaultPort = 7770;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // SCIO starting difficulty is 1 / 2^12
@@ -156,7 +156,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "SCIO blockchain start 11 dec 2018";
+        const char* pszTimestamp = "SCIO blockchain start 12 dec 2018 and fixed";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -167,21 +167,21 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1544558400;
+        genesis.nTime = 1544580000;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 1242725;
+        genesis.nNonce = 622142;
 
 		    hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0xafe738db2fb88497a2ec2638e98c5e23303252845e06f41d07b590f8d9379cab"));
-        assert(genesis.hashMerkleRoot == uint256("0x6670689431a94398ec8cb9316af8df1c15d41485af8d290b21451e05bbff5a75"));
+        assert(hashGenesisBlock == uint256("0xee5609f66174d301a38cf461712848870086582cc96e49b78cb6e45c33f1adf1"));
+        assert(genesis.hashMerkleRoot == uint256("0x3293efd662b63e54dc6582b0ec20123ae348e0ccb08c8de6322d1921634cff68"));
 
 
-        vSeeds.push_back(CDNSSeedData("45.77.122.135", "45.77.122.135"));   // Single node address
-        vSeeds.push_back(CDNSSeedData("95.179.207.154", "95.179.207.154"));       // Single node address
-        vSeeds.push_back(CDNSSeedData("80.240.26.253", "80.240.26.253"));   // Single node address
-        vSeeds.push_back(CDNSSeedData("45.32.14.165", "45.32.14.165"));       // Single node address
+        vSeeds.push_back(CDNSSeedData("95.179.228.41", "95.179.228.41"));   // Single node address
+        vSeeds.push_back(CDNSSeedData("104.238.158.29", "104.238.158.29"));       // Single node address
+        vSeeds.push_back(CDNSSeedData("139.180.202.106", "139.180.202.106"));   // Single node address
+        vSeeds.push_back(CDNSSeedData("149.248.13.211", "149.248.13.211"));       // Single node address
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 125);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 16);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 90);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 212);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
@@ -203,7 +203,7 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "04b198e8e3a09cf4d12d5540414b6f199d4c8e6f36864f776a9974937696e946bae4577ad9c5e3d827ea76ebe6d266e750020639cffbbe407f8905cb8aecb9293b";
-        strObfuscationPoolDummyAddress = "sPjKxYRZT7YnkhgWLxNU6QUtS7ziM734Yy";
+        strObfuscationPoolDummyAddress = "7a5yu9eZoGLZnDQ2QjQFBA46g4Zxo8bree";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
 
         /** Zerocoin */
@@ -264,8 +264,8 @@ public:
         nBlockLastGoodCheckpoint = 9891730; //Last valid accumulator checkpoint
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1544558401;
-        genesis.nNonce = 1125831;
+        genesis.nTime = 1544580001;
+        genesis.nNonce = 638278;
 
 	      hashGenesisBlock = genesis.GetHash();
         //printf(">>>hashGenesisBlock = %s\n", hashGenesisBlock.ToString().c_str());
@@ -300,7 +300,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKey = "04687722f8e09999241c334ac4454ca847593d92274a770aaa7bdeba3b2b0c064cc6fb45b16af02260cb7aca61a60b798a6ce7388edf9c8fadaba209d18b508c95";
-        strObfuscationPoolDummyAddress = "sPjKxYRZT7YnkhgWLxNU6QUtS7ziM734Yy";
+        strObfuscationPoolDummyAddress = "7a5yu9eZoGLZnDQ2QjQFBA46g4Zxo8bree";
         nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
@@ -335,9 +335,9 @@ public:
         nTargetTimespan = 24 * 60 * 60; // SCIO: 1 day
         nTargetSpacing = 1 * 60;        // SCIO: 1 minutes
         bnProofOfWorkLimit = ~uint256(0) >> 1;
-        genesis.nTime = 1544558402;
+        genesis.nTime = 1544580002;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 952025;
+        genesis.nNonce = 173482;
 
         hashGenesisBlock = genesis.GetHash();
         nDefaultPort = 17636;
